@@ -1,0 +1,166 @@
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+    --bg-color:#011521;
+    --primary-color:#011E30;
+    --secondary-color:#043355;
+    --text-color:white;
+    --text-color-disabled:rgb(131, 130, 130);
+    --enabled-btn-shadow:#02141d;
+    --disabled-btn:#09283f;
+}
+
+/* Hid scrolbar */
+html {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+/*  */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+}
+
+.form-name {
+    animation: form-name-load 450ms ease-in;
+    word-spacing: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+label,
+input,
+button {
+    font-family: 'Tajawal';
+    color: white;
+}
+
+.accounting-form {
+    background-color: var(--primary-color)!important;
+    border-radius: 10px;
+}
+
+.accounting-container {
+    margin-top: 7.5em;
+    animation: accounting-form-container-load 950ms ease-in-out;
+}
+.-bg-primary{
+    background-color: var(--primary-color) !important;
+}
+.-bg-secondary{
+    background-color: var(--secondary-color) !important;
+}
+
+.btn{
+    padding-right: 0% !important;
+    padding-left: 0%  !important;
+    align-content: center !important;
+    border-radius: 10px;
+}
+
+.btn:enabled {
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 1px 1px 5px var(--enabled-btn-shadow)!important;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    color: rgb(242, 238, 238);
+}
+
+.btn:disabled {
+    background-color: var(--disabled-btn) !important;
+    color: var(--text-color-disabled);
+    box-shadow: none;
+}
+
+
+@media (min-width: 993px){
+    .btn{
+        width: 16%;
+        margin: 0% !important;
+    }
+    
+} 
+
+@media (max-width: 992.99px){
+    #btn-browse-cost-center{
+        margin-right: auto !important;
+    }
+} 
+
+/* Warnings */
+
+.sure-to-delete-container{
+    background-color: var(--primary-color)!important;
+}
+
+
+
+/* Animations */
+@keyframes form-name-load {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes accounting-form-container-load {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+/* End Animations */
+
+
+
+
+
+/**     Measures Website      **/
+html {
+    direction: rtl;
+    scroll-behavior: smooth;
+    --bg-color:#011521;
+    --primary-color:#011E30;
+    --secondary-color:#043355;
+    --text-color:white;
+    --text-color-disabled:rgb(131, 130, 130);
+    --enabled-btn-shadow:#02141d;
+    --disabled-btn:#09283f;
+}
+
+/* Hid scrolbar */
+html {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+/*  */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+}

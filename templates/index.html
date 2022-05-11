@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/style.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!--  -->
+    <title>POSCloudy | المحاسبة</title>
+</head>
+
+<body id="body">
+    <div class="container">
+
+        <div class="row accounting-container text-white mb-5">
+
+            <!-- Form Name -->
+
+            <p class="text-center mb-2 form-name display-1">مركز التكلفة</p>
+            <form>
+                <div class="col accounting-form p-5 mx-1">
+                    <!-- Start Inputs -->
+                    <div class="row">
+                        <label for="costCenterNumber"
+                            class="col-3 col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2  col-form-label col-form-label-lg p-0">الرقم</label>
+                        <div class="col-6 col-sm-6 col-xs-7 col-md-6 col-lg-4 col-xl-4 p-0">
+                            <input type="number" class="form-control form-control-md rounded-pill mx-3"
+                                id="costCenterNumber" placeholder="الرقم" min="1" minlength="1" maxlength="2"
+                                required />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <label for="arabicDescription"
+                            class="col-3 col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-form-label col-form-label-lg p-0">الوصف
+                            العربي</label>
+                        <div class="col-8 col-xs-7 col-sm-9 col-md-8 col-lg-6 col-xl-6 p-0"
+                            style="align-self: center !important;">
+                            <input type="text" class="form-control form-control-md rounded-pill mx-3"
+                                id="arabicDescription" placeholder="الوصف العربي" disabled>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <label for="arabicDescription"
+                            class="col-3 col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 col-form-label col-form-label-lg p-0">الوصف
+                            الانجليزي</label>
+                        <div class="col-8 col-xs-7 col-sm-9 col-md-8 col-lg-6 col-xl-6 p-0"
+                            style="align-self: center !important;">
+                            <input type="text" class="form-control form-control-md rounded-pill mx-3"
+                                id="englishDescription" placeholder="الوصف الانجليزي" disabled>
+                        </div>
+                    </div>
+
+                    <!-- End Inputs -->
+
+                    <!-- Buttons -->
+                    <div class="mt-2 row gap-2 gap-sm-0 gap-md-0 gap-lg-0 gap-xl-0 mt-4 d-xl-flex justify-content-xl-evenly  d-lg-xl-flex justify-content-lg-evenly"
+                        id="cost-center-buttons-container">
+
+                        <button type="button" class="fs-4 py-1 text-center col-3 col-xl-2 btn -bg-secondary my-1  mr-auto"
+                            id="btn-new-cost-center" onclick="button.new()">جديد</button>
+
+
+                        <button type="button" class="fs-4 py-1 text-center col-3 col-xl-2 btn -bg-secondary my-1 mx-auto px-3"
+                            id="btn-edit-cost-center" onclick="button.edit()" disabled><span>تعديل</span></button>
+
+
+                        <button type="button" class="fs-4 py-1 text-center col-3 col-xl-2 btn -bg-secondary my-1 ml-auto "
+                            id="btn-save-cost-center" onclick="button.save()" disabled>حفظ</button>
+
+
+
+                        <button type="button" id="btn-return-cost-center" class="fs-4 py-1 text-center col-12 col-xl-2 btn -bg-secondary my-1"
+                            onclick="button.return()" disabled>تراجع</button>
+
+                        <button type="button" class="fs-4 py-1 text-center col-5 col-xl-2 btn  -bg-secondary my-1" id="btn-delete-cost-center"
+                            data-bs-toggle="modal" data-bs-target="#alert-box" disabled>حذف</button>
+
+                        <button type="button" class="fs-4 py-1 text-center col-5 col-xl-2 btn  -bg-secondary my-1" id="btn-browse-cost-center"
+                            onclick="button.browse()" >استعراض</button>
+                    </div>
+                    <!-- End Buttons -->
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Modal Delete -->
+    <div class="modal-dialog modal-dialog-centered" id="modal-delete">
+        <div class="modal fade " id="alert-box" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="alert-boxLabel" aria-hidden="true" aria-labelledby="staticBackdropLabel"
+            aria-hidden="true">
+            <div class="sure-to-delete-container modal-dialog text-start rounded ">
+                <div class="modal-content -bg-primary ">
+                    <div class="row ">
+
+                        <div class="col m-3"><span style="cursor: pointer;" data-bs-dismiss="modal"
+                                aria-label="Close">&#10006;</span>
+                        </div>
+                        <div class="row">
+                            <div class="col m-3 text-center">
+                                <p class="h4">هل ترغب في تأكيد الحذف؟</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col d-flex justify-content-evenly m-2 ">
+                                <button type="button" class="col-4 align-self-center btn -bg-secondary modal-btn"
+                                    data-bs-dismiss="modal" id="modal-yes">نعم</button>
+                                <button type="button" class="col-4 align-self-center btn btn-danger modal-btn"
+                                    data-bs-dismiss="modal">لا</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Not Found Modal -->
+    <div class="modal notFound-modal fade" id="notFound-modal" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="notFound-modal-label" aria-hidden="true" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="sure-to-delete-container modal-dialog text-start rounded ">
+            <div class="modal-content -bg-primary ">
+                <div class="row">
+
+                    <div class="col m-3"><span style="cursor: pointer;" data-bs-dismiss="modal"
+                            aria-label="Close">&#10006;</span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col m-3 text-center">
+                            <p class="h4">هذا الرقم غير موجود</p>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center mt-2 mb-4">
+                        <button type="button" class="col-8 align-self-center btn btn-danger modal-btn"
+                            data-bs-dismiss="modal">اغلاق</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Must enter number Modal -->
+    <div class="modal mustEnterNumber fade" id="mustEnterNumber" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="mustEnterNumber-label" aria-hidden="true" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="sure-to-delete-container modal-dialog text-start rounded ">
+            <div class="modal-content -bg-primary ">
+                <div class="row">
+
+                    <div class="col m-3"><span style="cursor: pointer;" data-bs-dismiss="modal"
+                            aria-label="Close">&#10006;</span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col m-3 text-center">
+                            <p class="h4">يجب ادخال رقماً</p>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center mt-2 mb-4">
+                        <button type="button" class="col-8 align-self-center btn btn-danger modal-btn"
+                            data-bs-dismiss="modal">اغلاق</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Browse Options -->
+    <div class="modal browseOptions fade" id="browseOptions" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="browseOptions-label" aria-hidden="true" aria-labelledby="staticBackdropLabel"
+        aria-hidden="true">
+        <div class="sure-to-delete-container modal-dialog text-start rounded ">
+            <div class="modal-content -bg-primary ">
+
+                <div class="row">
+
+                    <div class="col m-3"><span style="cursor: pointer;" data-bs-dismiss="modal"
+                            aria-label="Close">&#10006;</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <p class="fs-3">طريقة البحث</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="fromIndex"
+                            class="col-3 col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2  col-form-label col-form-label-lg p-0">من</label>
+                        <div class="col-6 col-sm-6 col-xs-7 col-md-6 col-lg-4 col-xl-4 p-0">
+                            <input type="tel" class="form-control form-control-md rounded-pill mx-3" id="fromIndex"
+                                placeholder="من" min="1" minlength="1" maxlength="2" required />
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <label for="toIndex"
+                            class="col-3 col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2  col-form-label col-form-label-lg p-0">الى</label>
+                        <div class="col-6 col-sm-6 col-xs-7 col-md-6 col-lg-4 col-xl-4 p-0">
+                            <input type="tel" class="form-control form-control-md rounded-pill mx-3" id="toIndex"
+                                placeholder="الى" min="1" minlength="1" maxlength="2" required />
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modules -->
+    <script type="module" src="static/api.js"></script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+
+<script src="static/script.js"></script>
+
+</html>
